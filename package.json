@@ -1,0 +1,41 @@
+{
+  "name": "nakano-bot",
+  "version": "0.1.23",
+  "description": "wechat bot build on Wechaty aimed to receive infos from wechat then fill form semi-automatically",
+  "main": "index.js",
+  "engines": {
+    "node": ">= 10"
+  },
+  "scripts": {
+    "lint": "eslint 'src/*.{js,ts}'",
+    "start:ts": "cross-env WECHATY_LOG=verbose ts-node src/index.ts",
+    "test:version": "check-node-version --node \">= 10\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GreyPlane/nakano-bot.git"
+  },
+  "keywords": [],
+  "author": "Huan LI <zixia@zixia.net>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GreyPlane/nakano-bot/issues"
+  },
+  "homepage": "https://github.com/GreyPlane/nakano-bot#readme",
+  "dependencies": {
+    "finis": "^0.4.4",
+    "fs-jetpack": "^2.2.3",
+    "qrcode-terminal": "^0.12.0",
+    "selenium-webdriver": "^4.0.0-alpha.7",
+    "wechaty": "^0.30.23"
+  },
+  "devDependencies": {
+    "@types/node": "^13.11.1",
+    "@types/selenium-webdriver": "^4.0.9",
+    "check-node-version": "^4.0.2",
+    "cross-env": "^7.0.0",
+    "is-pr": "^1.1.0",
+    "ts-node": "^8.8.2",
+    "typescript": "^3.8.3"
+  }
+}
