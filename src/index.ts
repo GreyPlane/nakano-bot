@@ -19,6 +19,15 @@ function onScan (qrcode: string, status: ScanStatus) {
 function onLogin (user: Contact) {
   bot.userSelf().say('zhongyeeeeeee').catch(e => log.error(e))
   log.info('StarterBot', '%s login', user)
+  setInterval(() => {
+    if (infos.length > 0 && lock === false) {
+      const info = infos[0]
+      lock = true
+      return main(info.data)
+        .catch((e) => log.error(e))
+        .finally(() => (lock = false))
+    }
+  }, 3000)
 }
 
 function onLogout (user: Contact) {
@@ -82,12 +91,4 @@ action.on('ok', () => {
 })
 action.on('ejeck', () => bot.userSelf().say('中野弹射！'))
 
-setInterval(() => {
-  if (infos.length > 0 && lock === false) {
-    const info = infos[0]
-    lock = true
-    return main(info.data)
-      .catch((e) => log.error(e))
-      .finally(() => (lock = false))
-  }
-}, 3000)
+
